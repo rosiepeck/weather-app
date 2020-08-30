@@ -1,0 +1,50 @@
+body {
+  font-family: "Questrial", sans-serif;
+  text-align: center;
+}
+.current-city {
+  color: #ffcc63;
+  text-align: center;
+  font-weight: 900;
+  font-size: 40px;
+}
+
+.temp-head {
+  font-weight: bold;
+}
+
+.temp-symbol {
+  display: block;
+  margin: auto;
+  width: 200px;
+}
+
+.temp {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+#celsius,
+#farenheit,
+#unit-separator {
+  font-size: 20px;
+  vertical-align: text-top;
+}
+
+#celsius:hover,
+#farenheit:hover {
+  cursor: pointer;
+}
+
+#search-button,
+#current-button {
+  background-color: #ffcc63;
+  color: #fff;
+  border: none;
+  border-width: thin;
+  border-color: #bd8318;
+  border-radius: 4px;
+}
+#current-button {
+  background-color: #f1d191;
+}
