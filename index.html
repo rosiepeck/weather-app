@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <script src="https://kit.fontawesome.com/756ebd027a.js" crossorigin="anonymous"></script>
+    <link href="src/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col">
+                        <form id="searchbar">
+                            <input type="text" placeholder="Enter a city" id="city-entered" size=40>
+                    </div>
+                    <div class="col">
+                        <input type="submit" value="Search" id="search-button">
+                    </div>
+                    <div class="col">
+                        <button id="current-button">Current</button>
+                    </div>
+                    </form>
+                </div>
+
+                <p class="cities">
+                <div class="row">
+                    <div class="col">New York</div>
+                    <div class="col">Paris</div>
+                    <div class="col">London</div>
+                    <div class="col">Tokyo</div>
+                </div>
+                </p>
+
+                <h2 class="current-city">
+                    SYDNEY
+                </h2>
+
+                <p class="temp-head">
+                <div id="date"> Sunday 1:51 PM </div>
+                Partly cloudy
+                </p>
+
+
+                <p class="temp-symbol">
+                    <img src="media/undraw_Beach_rvmg.svg" alt="" width="150px" />
+                </p>
+            </div>
+            <div class="col">
+                <p class="temp">
+                    <span id="temperature-element">24</span>
+                    <span id="celsius">°C</span>
+                    <span id="unit-separator"> | </span>
+                    <span id="farenheit">°F</span>
+                </p>
+
+                <p class="temp-detail">
+                <div class="row">
+                    <div class="col-4" id="precipitation-element"> Precipitation: 0% </div>
+                    <div class="col-4" id="humidity-element"> Humidity: 41% </div>
+                    <div class="col-4" id="wind-element"> Wind: 18 km/h </div>
+                </div>
+                </p>
+
+                <p class="five-days">
+                <div class="row">
+                    <div class="col"> Mon
+                        <br /> <i class="fas fa-cloud-sun-rain"></i>
+                        <br /> 15° C
+                    </div>
+                    <div class="col"> Tue
+                        <br /> <i class="fas fa-cloud-sun"></i>
+                        <br /> 21° C
+                    </div>
+                    <div class="col"> Wed
+                        <br /> <i class="fas fa-cloud-sun"></i>
+                        <br /> 14° C
+                    </div>
+                    <div class="col"> Thur
+                        <br /> <i class="fas fa-sun"></i>
+                        <br /> 25° C
+                    </div>
+                    <div class="col"> Fri
+                        <br /> <i class="fas fa-sun"></i>
+                        <br /> 27° C
+                    </div>
+                </div>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="src/index.js"></script>
+
+</html>
