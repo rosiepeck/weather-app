@@ -13,22 +13,25 @@ body {
   font-weight: bold;
 }
 
-.temp-symbol {
-  display: block;
-  margin: auto;
-  width: 200px;
+#temp-symbol {
+  color: #ffcc63;
+  line-height: 1;
 }
 
-.temp {
+#temperature-element {
+  padding-left: 10px;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 64px;
+  line-height: 1;
+  vertical-align: top;
 }
 
 #celsius,
 #farenheit,
 #unit-separator {
-  font-size: 20px;
-  vertical-align: text-top;
+  position: relative;
+  font-size: 14px;
+  top: -40px;
 }
 
 #celsius:hover,
@@ -52,4 +55,16 @@ body {
 footer {
   font-size: 14px;
   margin-top: 10px;
+  text-align: left;
+}
+
+.weather-app-wrapper {
+  max-width: 700px;
+  margin: 30px auto;
+}
+
+.weather-app {
+  padding: 30px 20px;
+  border: 1px solid #f1d191;
+  border-radius: 10px;
 }

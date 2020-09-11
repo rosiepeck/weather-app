@@ -14,9 +14,9 @@
 </head>
 
 <body>
+    <div class="weather-app-wrapper">
+    <div class="weather-app">
     <div class="container">
-        <div class="card">
-            <div class="card-body">
 
                 <div class="row">
                     <div class="col">
@@ -51,17 +51,18 @@
                 </p>
 
 
-                <p class="temp-symbol">
-                    <img src="media/undraw_Beach_rvmg.svg" alt="" width="150px" />
-                </p>
-            </div>
-            <div class="col">
-                <p class="temp">
-                    <span id="temperature-element">24</span>
-                    <span id="celsius">°C</span>
-                    <span id="unit-separator"> | </span>
-                    <span id="farenheit">°F</span>
-                </p>
+                <div class="center-element">
+                        <span id="temp-symbol">
+                            <i class="fas fa-circle fa-4x"></i>
+                        </span>
+                       
+                            <span id="temperature-element">24</span>
+                            <span id="celsius">°C</span>
+                            <span id="unit-separator"> | </span>
+                            <span id="farenheit">°F</span>
+                        
+                    
+                </div>
 
                 <p class="temp-detail">
                 <div class="row">
@@ -97,9 +98,12 @@
                 </p>
 
             </div>
-        </div>
+        
     </div>
+    
     <footer>This page was coded by Rosie Peck and is <a href="https://github.com/rosiepeck/weather-app">open-sourced on GitHub</a> and hosted on <a href="https://www.netlify.com/">Netlify.</a></footer>
+</div>
+
 </body>
 <script src="src/index.js"></script>
 
