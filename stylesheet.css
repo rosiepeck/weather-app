@@ -13,9 +13,11 @@ body {
   font-weight: bold;
 }
 
-#temp-symbol {
-  color: #ffcc63;
-  line-height: 1;
+#temp-description {
+  text-transform: capitalize;
+}
+
+#icon {
 }
 
 #temperature-element {
@@ -23,7 +25,8 @@ body {
   font-weight: bold;
   font-size: 64px;
   line-height: 1;
-  vertical-align: top;
+  text-align: bottom;
+  padding-top: 20px;
 }
 
 #celsius,
@@ -31,7 +34,7 @@ body {
 #unit-separator {
   position: relative;
   font-size: 14px;
-  top: -40px;
+  top: -35px;
 }
 
 #celsius:hover,

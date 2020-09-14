@@ -51,19 +51,28 @@ function getSearchWeather(event) {
 
 function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
+  let description = response.data.weather[0].description;
   let humidity = response.data.main.humidity;
   let wind = response.data.wind.speed;
   let precipitation = response.data.clouds.all;
 
   let temperatureDisplay = document.querySelector("#temperature-element");
+  let descriptionDisplay = document.querySelector("#temp-description");
   let humidityDisplay = document.querySelector("#humidity-element");
   let windDisplay = document.querySelector("#wind-element");
   let precipitationDisplay = document.querySelector("#precipitation-element");
+  let iconDisplay = document.querySelector("#icon");
 
   temperatureDisplay.innerHTML = temperature;
+  descriptionDisplay.innerHTML = description;
   humidityDisplay.innerHTML = humidity;
   windDisplay.innerHTML = wind;
   precipitationDisplay.innerHTML = `${precipitation}%`;
+  iconDisplay.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconDisplay.setAttribute("alt", response.data.weather[0].description);
 
   console.log(response);
   console.log(temperature);
