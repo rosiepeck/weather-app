@@ -13,6 +13,16 @@ body {
   font-weight: bold;
 }
 
+#city-entered {
+  width: 400px;
+}
+
+#search-button,
+#current-button {
+  height: 40px;
+  width: 80px;
+}
+
 #temp-description {
   text-transform: capitalize;
 }

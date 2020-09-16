@@ -19,12 +19,14 @@ let fullDate = `${currentDay} ${currentHours}:${currentMinutes}`;
 
 currentDate.innerHTML = fullDate;
 
+//show current city
+
 //show city name entered
 
 function showSearchCity(event) {
   event.preventDefault();
 
-  let searchCity = document.querySelector("#city-entered");
+  let searchCity = document.querySelector("#city-input");
   if (searchCity === null) {
     alert("Please enter a city");
   } else {
@@ -38,7 +40,7 @@ function showSearchCity(event) {
 function getSearchWeather(event) {
   event.preventDefault();
 
-  let searchCity = document.querySelector("#city-entered");
+  let searchCity = document.querySelector("#city-input");
 
   let apiKey = "4f482c7efe60a0d9873383fc626d95ab";
   let city = searchCity.value;
@@ -102,7 +104,7 @@ function showLocation(event) {
   displayCity.innerHTML = "CURRENT";
 }
 
-let searchBar = document.querySelector("#searchbar");
+let searchBar = document.querySelector("#search-bar");
 searchBar.addEventListener("submit", showSearchCity);
 searchBar.addEventListener("submit", getSearchWeather);
 
@@ -113,6 +115,7 @@ searchBar.addEventListener("click", getSearchWeather);
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", showLocation);
 currentButton.addEventListener("click", getLocation);
+currentButton.addEventListener("click", getCurrentWeather);
 
 // Show Celsius vs. Farenheit --- need to update
 function showFarenheit(event) {
