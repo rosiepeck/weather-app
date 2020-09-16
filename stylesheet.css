@@ -27,7 +27,13 @@ body {
   text-transform: capitalize;
 }
 
-#icon {
+#forecast-icon {
+  width: 40px;
+}
+
+#temp-forecast {
+  line-height: 1;
+  top: -20px;
 }
 
 #temperature-element {
