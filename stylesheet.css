@@ -3,7 +3,7 @@ body {
   text-align: center;
 }
 .display-city {
-  color: #ffcc63;
+  color: #abacb1;
   text-align: center;
   font-weight: 900;
   font-size: 40px;
@@ -27,22 +27,15 @@ body {
   text-transform: capitalize;
 }
 
-#forecast-icon {
-  width: 40px;
-}
-
-#temp-forecast {
-  line-height: 1;
-  top: -20px;
+#icon {
+  position: relative;
+  top: -18px;
 }
 
 #temperature-element {
   padding-left: 10px;
   font-weight: bold;
   font-size: 64px;
-  line-height: 1;
-  text-align: bottom;
-  padding-top: 20px;
 }
 
 #celsius-link,
@@ -51,6 +44,9 @@ body {
   position: relative;
   font-size: 14px;
   top: -35px;
+}
+#forecast-icon {
+  width: 50px;
 }
 
 #farenheit-link:hover {

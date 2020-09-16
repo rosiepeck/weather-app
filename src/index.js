@@ -49,9 +49,9 @@ function showWeather(response) {
   cityDisplay.innerHTML = response.data.name.toUpperCase();
   temperatureDisplay.innerHTML = Math.round(celsiusTemperature);
   descriptionDisplay.innerHTML = response.data.weather[0].description;
-  humidityDisplay.innerHTML = `Humidity${response.data.main.humidity}`;
-  windDisplay.innerHTML = `wind:${response.data.wind.speed}`;
-  precipitationDisplay.innerHTML = `${response.data.clouds.all}%`;
+  humidityDisplay.innerHTML = `Humidity: ${response.data.main.humidity}`;
+  windDisplay.innerHTML = `Wind: ${response.data.wind.speed}`;
+  precipitationDisplay.innerHTML = `Precipitation: ${response.data.clouds.all}%`;
   iconDisplay.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -61,27 +61,27 @@ function showWeather(response) {
 
 function showForecast(response) {
   let forecastDisplay = document.querySelector("#forecast");
-
+  forecastDisplay.innerHTML = null;
   let forecast = null;
 
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
     forecastDisplay.innerHTML += `
   <div class="col-2">
+  </br>
   <p>      
   ${formatHours(forecast.dt * 1000)}
-  </br>    
+    
   <img
         src="http://openweathermap.org/img/wn/${
           forecast.weather[0].icon
         }@2x.png"
       / id = "forecast-icon">
-      <div class="weather-forecast-temperature">
-
-      <strong>
+</br>
+      <strong id="forecast-temp">
           ${Math.round(forecast.main.temp)}°
         </strong>
-      </div>
+        </p>
     </div>
   `;
   }
@@ -122,7 +122,6 @@ function handlePosition(position) {
   let unit = "metric";
   let apiKey = "4f482c7efe60a0d9873383fc626d95ab";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(showWeather);
 }
 
@@ -138,7 +137,7 @@ searchBar.addEventListener("submit", handleSubmit);
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", handlePosition);
 
-// Show Celsius vs. Farenheit --- need to update
+// Show Celsius vs. Farenheit
 function showFarenheit(event) {
   event.preventDefault();
   let farenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
