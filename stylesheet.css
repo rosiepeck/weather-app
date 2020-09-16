@@ -2,7 +2,7 @@ body {
   font-family: "Questrial", sans-serif;
   text-align: center;
 }
-.current-city {
+.display-city {
   color: #ffcc63;
   text-align: center;
   font-weight: 900;

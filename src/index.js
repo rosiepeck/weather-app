@@ -19,45 +19,10 @@ let fullDate = `${currentDay} ${currentHours}:${currentMinutes}`;
 
 currentDate.innerHTML = fullDate;
 
-//show current city
-
-//show city name entered
-
-function showSearchCity(event) {
-  event.preventDefault();
-
-  let searchCity = document.querySelector("#city-input");
-  if (searchCity === null) {
-    alert("Please enter a city");
-  } else {
-    let displayCity = document.querySelector(".current-city");
-    displayCity.innerHTML = searchCity.value.toUpperCase();
-  }
-}
-
 //get weather for searched city
 
-function getSearchWeather(event) {
-  event.preventDefault();
-
-  let searchCity = document.querySelector("#city-input");
-
-  let apiKey = "4f482c7efe60a0d9873383fc626d95ab";
-  let city = searchCity.value;
-  let unit = "metric";
-  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?q=";
-  let apiUrl = `${apiEndpoint}${city}&appid=${apiKey}&units=${unit}`;
-
-  axios.get(apiUrl).then(showWeather);
-}
-
 function showWeather(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let description = response.data.weather[0].description;
-  let humidity = response.data.main.humidity;
-  let wind = response.data.wind.speed;
-  let precipitation = response.data.clouds.all;
-
+  let cityDisplay = document.querySelector(".display-city");
   let temperatureDisplay = document.querySelector("#temperature-element");
   let descriptionDisplay = document.querySelector("#temp-description");
   let humidityDisplay = document.querySelector("#humidity-element");
@@ -65,20 +30,41 @@ function showWeather(response) {
   let precipitationDisplay = document.querySelector("#precipitation-element");
   let iconDisplay = document.querySelector("#icon");
 
-  temperatureDisplay.innerHTML = temperature;
-  descriptionDisplay.innerHTML = description;
-  humidityDisplay.innerHTML = humidity;
-  windDisplay.innerHTML = wind;
-  precipitationDisplay.innerHTML = `${precipitation}%`;
+  cityDisplay.innerHTML = response.data.name.toUpperCase();
+  temperatureDisplay.innerHTML = Math.round(response.data.main.temp);
+  descriptionDisplay.innerHTML = response.data.weather[0].description;
+  humidityDisplay.innerHTML = response.data.main.humidity;
+  windDisplay.innerHTML = response.data.wind.speed;
+  precipitationDisplay.innerHTML = `${response.data.clouds.all}%`;
   iconDisplay.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconDisplay.setAttribute("alt", response.data.weather[0].description);
-
-  console.log(response);
-  console.log(temperature);
 }
+
+function search(city) {
+  let apiKey = "4f482c7efe60a0d9873383fc626d95ab";
+  let unit = "metric";
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?q=";
+  let apiUrl = `${apiEndpoint}${city}&appid=${apiKey}&units=${unit}`;
+
+  axios.get(apiUrl).then(showWeather);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  if (cityInputElement === null) {
+    alert("Please enter a city");
+  }
+  search(cityInputElement.value);
+}
+
+let searchBar = document.querySelector("#search-bar");
+searchBar.addEventListener("submit", handleSubmit);
+
+search("New York");
 
 function getLocation(event) {
   event.preventDefault();
@@ -104,18 +90,10 @@ function showLocation(event) {
   displayCity.innerHTML = "CURRENT";
 }
 
-let searchBar = document.querySelector("#search-bar");
-searchBar.addEventListener("submit", showSearchCity);
-searchBar.addEventListener("submit", getSearchWeather);
-
-let searchButton = document.querySelector("#search-button");
-searchBar.addEventListener("click", showSearchCity);
-searchBar.addEventListener("click", getSearchWeather);
-
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", showLocation);
 currentButton.addEventListener("click", getLocation);
-currentButton.addEventListener("click", getCurrentWeather);
+currentButton.addEventListener("click", showWeather);
 
 // Show Celsius vs. Farenheit --- need to update
 function showFarenheit(event) {
