@@ -39,16 +39,15 @@ body {
   padding-top: 20px;
 }
 
-#celsius,
-#farenheit,
+#celsius-link,
+#farenheit-link,
 #unit-separator {
   position: relative;
   font-size: 14px;
   top: -35px;
 }
 
-#celsius:hover,
-#farenheit:hover {
+#farenheit-link:hover {
   cursor: pointer;
 }
 
@@ -80,4 +79,13 @@ footer {
   padding: 30px 20px;
   border: 1px solid #f1d191;
   border-radius: 10px;
+}
+
+.center-element .active {
+  color: black;
+  cursor: default;
+}
+
+.center-element .active:hover {
+  text-decoration: none;
 }

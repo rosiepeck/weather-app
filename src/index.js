@@ -30,8 +30,10 @@ function showWeather(response) {
   let precipitationDisplay = document.querySelector("#precipitation-element");
   let iconDisplay = document.querySelector("#icon");
 
+  celsiusTemperature = response.data.main.temp;
+
   cityDisplay.innerHTML = response.data.name.toUpperCase();
-  temperatureDisplay.innerHTML = Math.round(response.data.main.temp);
+  temperatureDisplay.innerHTML = Math.round(celsiusTemperature);
   descriptionDisplay.innerHTML = response.data.weather[0].description;
   humidityDisplay.innerHTML = response.data.main.humidity;
   windDisplay.innerHTML = response.data.wind.speed;
@@ -64,8 +66,6 @@ function handleSubmit(event) {
 let searchBar = document.querySelector("#search-bar");
 searchBar.addEventListener("submit", handleSubmit);
 
-search("New York");
-
 function getLocation(event) {
   event.preventDefault();
   console.log("getting location");
@@ -97,16 +97,27 @@ currentButton.addEventListener("click", showWeather);
 
 // Show Celsius vs. Farenheit --- need to update
 function showFarenheit(event) {
-  let tempNumber = document.querySelector("#temp-eleemnt");
-  tempNumber.innerHTML = "66";
+  event.preventDefault();
+  let farenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  celsiusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+  let temperatureDisplay = document.querySelector("#temperature-element");
+  temperatureDisplay.innerHTML = Math.round(farenheitTemperature);
 }
 function showCelsius(event) {
-  let tempNumber = document.querySelector("#temp-element");
-  tempNumber.innerHTML = "24";
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
+  let temperatureDisplay = document.querySelector("#temperature-element");
+  temperatureDisplay.innerHTML = Math.round(celsiusTemperature);
 }
 
-let farenheit = document.querySelector("#farenheit");
-farenheit.addEventListener("click", showFarenheit);
+let celciusTemperature = null;
 
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", showCelsius);
+let farenheitLink = document.querySelector("#farenheit-link");
+farenheitLink.addEventListener("click", showFarenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsius);
+
+search("New York");
