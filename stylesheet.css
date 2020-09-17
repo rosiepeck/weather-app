@@ -14,13 +14,12 @@ body {
 }
 
 #city-entered {
-  width: 400px;
+  width: 600px;
 }
 
-#search-button,
-#current-button {
+#search-button {
   height: 40px;
-  width: 80px;
+  width: 180px;
 }
 
 #temp-description {

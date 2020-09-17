@@ -22,9 +22,7 @@ currentDate.innerHTML = fullDate;
 function formatHours(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
+
   let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -108,23 +106,6 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-function getLocation(event) {
-  event.preventDefault();
-  console.log("getting location");
-
-  navigator.geolocation.getCurrentPosition(handlePosition);
-}
-
-function handlePosition(position) {
-  let latitude = Math.round(position.coords.latitude);
-  let longitude = Math.round(position.coords.longitude);
-
-  let unit = "metric";
-  let apiKey = "4f482c7efe60a0d9873383fc626d95ab";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(showWeather);
-}
-
 function showLocation(event) {
   event.preventDefault();
   let displayCity = document.querySelector(".current-city");
@@ -133,9 +114,6 @@ function showLocation(event) {
 
 let searchBar = document.querySelector("#search-bar");
 searchBar.addEventListener("submit", handleSubmit);
-
-let currentButton = document.querySelector("#current-button");
-currentButton.addEventListener("click", handlePosition);
 
 // Show Celsius vs. Farenheit
 function showFarenheit(event) {
